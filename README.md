@@ -1,6 +1,8 @@
 # Processing–Syphon 2-machine slideshow
 
-This is a simple application (server) that sends a slideshow via Syphon to another program and an OSC message to another computer (or program) running the client application.
+This is a pair of simple applications to play a slideshow simultaneously in two computers. The Server sends an OSC message to another computer (or program) running the Client application. Previous/next slide commands are send from keyboard on the Server and plays them in that application and triggers previous/next slide also on the Client.
+
+Both applications send Syphon frames to be used by some other program (Resolume, VPT, Modul8, etc.).
 
 ## Setup
 
