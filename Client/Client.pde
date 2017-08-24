@@ -7,18 +7,6 @@ Spacebar or right arrow: go to next slide
 Left arrow: go to previous slide
 */
 
-////////////////////////////
-////// Set variables ///////
-////////////////////////////
-
-String remoteIp = "127.0.0.1";
-int localPort = 8080;
-int remotePort = 8000;
-
-////////////////////////////
-////////////////////////////
-////////////////////////////
-
 PGraphics canvas;
 SyphonServer server;
 
@@ -32,6 +20,7 @@ OscP5 oscP5;
 NetAddress myRemoteLocation;
 
 PFont font;
+JSONObject config;
 
 void settings() {
   size(600,400, P3D);
@@ -41,9 +30,15 @@ void settings() {
 void setup() { 
   canvas = createGraphics(width, height, P3D);
   lyrics = loadStrings("lyrics-FI.txt");
+  config = loadJSONObject("../../config.json");
   
   // Create syhpon server to send frames out.
   server = new SyphonServer(this, "Processing Syphon");
+  
+  // local and remote are flipped because the client is considered the remote
+  int localPort = config.getInt("remotePort");
+  int remotePort = config.getInt("localPort");
+  String remoteIp = config.getString("remoteIp");
   
   oscP5 = new OscP5(this, localPort);
   myRemoteLocation = new NetAddress(remoteIp, remotePort);
