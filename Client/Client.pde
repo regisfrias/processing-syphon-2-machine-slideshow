@@ -12,8 +12,8 @@ Left arrow: go to previous slide
 ////////////////////////////
 
 String remoteIp = "127.0.0.1";
-int localPort = 8000;
-int remotePort = 8080;
+int localPort = 8080;
+int remotePort = 8000;
 
 ////////////////////////////
 ////////////////////////////
@@ -88,30 +88,19 @@ void draw() {
   server.sendImage(canvas);
 }
 
-void keyPressed(){
-  if( keyCode == 32 || keyCode == 39){
-    if(slide < lyrics.length - 1){
-      fading = true;
-      
-      println(slide);
-      /* in the following different ways of creating osc messages are shown by example */
-      OscMessage myMessage = new OscMessage("/test");
-      
-      myMessage.add(slide); /* add an int to the osc message */
-    
-      /* send the message */
-      oscP5.send(myMessage, myRemoteLocation);
-    }
-  }
-  if(keyCode == 37){
-    if(slide > 0) slide--;
-  }
-}
-
 /* incoming osc message are forwarded to the oscEvent method. */
 void oscEvent(OscMessage theOscMessage) {
   /* print the address pattern and the typetag of the received OscMessage */
   print("### received an osc message.");
   print(" addrpattern: "+theOscMessage.addrPattern());
   println(" typetag: "+theOscMessage.typetag());
+  
+  
+  if(slide < lyrics.length - 1){
+    fading = true;
+    
+    println(slide);
+    slide = theOscMessage.get(0).intValue();
+    print(" get: "+theOscMessage.get(0).intValue());
+  }
 }
