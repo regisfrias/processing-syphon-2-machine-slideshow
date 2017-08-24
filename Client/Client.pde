@@ -29,7 +29,7 @@ void settings() {
 
 void setup() { 
   canvas = createGraphics(width, height, P3D);
-  lyrics = loadStrings("lyrics-FI.txt");
+  lyrics = loadStrings("../../content-client.txt");
   config = loadJSONObject("../../config.json");
   
   // Create syhpon server to send frames out.
