@@ -12,6 +12,7 @@ Left arrow: go to previous slide
 ////////////////////////////
 
 String remoteIp = "127.0.0.1";
+//String remoteIp = "192.168.10.57";
 int localPort = 8000;
 int remotePort = 8080;
 
@@ -40,13 +41,6 @@ void settings() {
 
 void setup() { 
   canvas = createGraphics(width, height, P3D);
-  
-  //lyrics = new String[4];
-  //lyrics[0] = "Vilma tem o tom da pele cor de neve\nE dois olhos claros como o céu";
-  //lyrics[1] = "Vilma diz que embora nova\nPor amores já chorou que nem viúva\nMas acabou, esqueceu";
-  //lyrics[2] = "Vilma adora viajar e até se atreve\nNum país distante como o meu";
-  //lyrics[3] = "Vilma diz que fez meu mapa\nE no céu o meu destino rapta o seu";
-  
   lyrics = loadStrings("lyrics-PT.txt");
   
   // Create syhpon server to send frames out.

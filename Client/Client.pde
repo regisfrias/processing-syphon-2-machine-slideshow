@@ -40,14 +40,7 @@ void settings() {
 
 void setup() { 
   canvas = createGraphics(width, height, P3D);
-  
-  //lyrics = new String[4];
-  //lyrics[0] = "Vilma tem o tom da pele cor de neve\nE dois olhos claros como o céu";
-  //lyrics[1] = "Vilma diz que embora nova\nPor amores já chorou que nem viúva\nMas acabou, esqueceu";
-  //lyrics[2] = "Vilma adora viajar e até se atreve\nNum país distante como o meu";
-  //lyrics[3] = "Vilma diz que fez meu mapa\nE no céu o meu destino rapta o seu";
-  
-  lyrics = loadStrings("lyrics-PT.txt");
+  lyrics = loadStrings("lyrics-FI.txt");
   
   // Create syhpon server to send frames out.
   server = new SyphonServer(this, "Processing Syphon");
@@ -94,7 +87,6 @@ void oscEvent(OscMessage theOscMessage) {
   print("### received an osc message.");
   print(" addrpattern: "+theOscMessage.addrPattern());
   println(" typetag: "+theOscMessage.typetag());
-  
   
   if(slide < lyrics.length - 1){
     fading = true;
