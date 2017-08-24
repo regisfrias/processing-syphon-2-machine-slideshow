@@ -4,6 +4,11 @@ This is a pair of simple applications to play a slideshow simultaneously in two 
 
 Both applications send Syphon frames to be used by some other program (Resolume, VPT, Modul8, etc.).
 
+## Dependencies
+
+- Syphon Processing library (https://github.com/Syphon/Processing)
+- oscP5 (http://www.sojamo.de/libraries/oscp5/)
+
 ## Setup
 
 Adjust config.json to reflect your environment. Ports don't need to be changed, but remoteIp most likely. This should be the local address of the Client (remote) machine.
